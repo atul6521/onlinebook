@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  host: localhost
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: paypal_development
+
+
+test:
+  <<: *default
+  database: paypal_test
+
+production:
+  <<: *default
+  database: paypal_production
+  username: <%= ENV['paypal_DATABASE_USERNAME'] %>
+  password: <%= ENV['paypal_DATABASE_PASSWORD'] %>

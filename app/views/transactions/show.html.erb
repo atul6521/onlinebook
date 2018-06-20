@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Book Invoice</h1>
+      <% if @transaction.status? %>  
+        Invoice Id: <span><%= @transaction.notification_params["invoice"] %></span><br>
+        Book name : <span><%= @transaction.book.name %></span><br>
+        Price : $<span><%= @transaction.book.price %></span><br>
+        Status : <span><%= @transaction.status %></span><br>
+        Date : <span><%= @transaction.purchased_at %></span><br>
+        Transaction ID : <span><%= @transaction.transaction_id %></span><br>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
